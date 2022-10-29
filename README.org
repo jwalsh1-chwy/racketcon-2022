@@ -2,6 +2,13 @@
 
 https://con.racket-lang.org/
 
+
+** Videos 
+
+https://www.google.com/search?q=youtube+racketcon&rlz=1C5GCEM_enUS926US926&oq=youtube+racketcon&aqs=chrome..69i57j69i64.13347j0j7&sourceid=chrome&ie=UTF-8
+
+* Sessions 
+
 ** DONE The final tier is Shed: Inside the Wizard Engine’s fast in-place interpreter for WebAssembly
 
 - https://github.com/titzer/wizard-engine
@@ -102,7 +109,7 @@ check the benchmarks looking for
 
 - https://cs.brown.edu/people/sk/Publications/Papers/Published/lgmvpk-static-python/
 
-** INPROGRESS Resyntax: A Macro-Powered Refactoring Tool
+** DONE Resyntax: A Macro-Powered Refactoring Tool
 
 - Linter tools for standard PR feedback 
 
@@ -123,23 +130,103 @@ test: "lambda variable definition with no arguments to function definition"
 ------------------------------
 #+end_src
 
-** What Can Beginners Learn from Video Games?
+** DONE What Can Beginners Learn from Video Games?
 
-** Design Recipe Guided Synthesis with Bingus
+- Example: alien game
 
-** VISr: Visual and Interactive Syntax
+- Template: ~define~ the objects, ~check-expect~
 
-** Forge: Building a Pedagogic Solver Tool in Racket
+- Use functoinal composition for OO style interfaces 
 
-** Stacker: A runnable notional machine for an HtDP-like language
+** DONE Design Recipe Guided Synthesis with Bingus
 
-** Examplar: Making Hay from Wheat
+- https://con.racket-lang.org/htdp.org
 
-** Contracts for protocols
+- https://github.com/ralsei/bingus
 
-** fmt: A Racket code formatter
+- Uses the design recipe
 
-** Summary of the Summer of `#lang` (Fun + Games III)
+#+begin_src rkt
+(define-struct date (year month day))
+#+end_src
 
-** The State of Racket
+- Example: depth that takes a Tree
 
+#+begin_src rkt
+(define (depth tree))
+#+end_src
+
+- https://www.cis.upenn.edu/~stevez/papers/OZ15.pdf
+
+- This seems similar to https://github.com/webyrd/Barliman
+
+** DONE VISr: Visual and Interactive Syntax
+
+- https://github.com/LeifAndersen
+
+- https://github.com/LeifAndersen/visr-deps
+
+- https://github.com/LeifAndersen/interactive-syntax-clojure
+
+- https://dl.acm.org/doi/10.1145/3428290
+
+** DONE Forge: Building a Pedagogic Solver Tool in Racket
+
+- Model the game of tic tac toe 
+
+- Constraint solving system 
+
+- indices, players, rules 
+
+- https://people.csail.mit.edu/aleks/website/papers/mit-tr14-hola.pdf
+
+- https://cs.brown.edu/research/pubs/theses/ugrad/2022/chen.qianfan.pdf
+
+** REVIEW Stacker: A runnable notional machine for an HtDP-like language
+
+- https://beautifulracket.com/stacker/ 
+#+begin_src rkt
+#lang http/asl
+
+(define (f x) x)
+#+end_src
+
+- stacks and linking
+
+** TODO Examplar: Making Hay from Wheat
+
+- https://cs.brown.edu/~sk/Publications/Papers/Published/fffkbmt-programmable-prog-lang/paper.pdf
+
+- Comes back to providing good examples
+
+- Implement: ~median~
+
+- Implement: ~sum~
+
+- Implement: ~append~
+
+- Implement: ~median~
+
+
+- See also https://github.com/webyrd/Barliman
+
+- Look at creating tests as "buggies" that are the counter examples 
+
+- Should should the meta for students to understand how things will break when in the course
+
+
+** TODO Contracts for protocols
+
+- https://github.com/camoy
+
+** TODO fmt: A Racket code formatter
+
+- https://github.com/sorawee/fmt
+
+** TODO Summary of the Summer of `#lang` (Fun + Games III)
+
+** TODO The State of Racket
+
+* Events 
+
+- https://trendsfp.github.io/cfp.html
