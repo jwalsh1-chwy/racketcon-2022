@@ -67,6 +67,8 @@ check the benchmarks looking for
 
 - https://github.com/racket/typed-racket/actions
 
+- https://github.com/racket/typed-racket
+
 - https://cs.brown.edu/people/bgreenma/sitemap.html
 
 - Typed Racket: ~#lang typed/racket~
@@ -106,6 +108,8 @@ check the benchmarks looking for
 
 - https://github.com/jackfirth/resyntax
 
+- https://github.com/jackfirth/resyntax/blob/master/default-recommendations.rkt
+
 #+begin_src rkt
 test: "lambda variable definition with no arguments to function definition"
 ------------------------------
@@ -117,8 +121,8 @@ test: "lambda variable definition with no arguments to function definition"
 (define (f)
   1)
 ------------------------------
-
 #+end_src
+
 ** What Can Beginners Learn from Video Games?
 
 ** Design Recipe Guided Synthesis with Bingus
