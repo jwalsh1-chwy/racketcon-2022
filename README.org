@@ -2,7 +2,7 @@
 
 https://con.racket-lang.org/
 
-** The final tier is Shed: Inside the Wizard Engine’s fast in-place interpreter for WebAssembly
+** DONE The final tier is Shed: Inside the Wizard Engine’s fast in-place interpreter for WebAssembly
 
 - https://github.com/titzer/wizard-engine
 
@@ -41,7 +41,7 @@ check the benchmarks looking for
 - https://github.com/titzer/cs17-670-fall2022-proj1
 - https://arxiv.org/abs/2205.01183
 
-** Metaprograms and Proofs: Macros in Lean 4
+** DONE Metaprograms and Proofs: Macros in Lean 4
 
 - leanprover.github.io
 
@@ -63,7 +63,7 @@ check the benchmarks looking for
 
 - https://pp.ipd.kit.edu/uploads/publikationen/ullrich20beyond.pdf
 
-** Shallow and Optional Types
+** DONE Shallow and Optional Types
 
 - https://github.com/racket/typed-racket/actions
 
@@ -100,8 +100,25 @@ check the benchmarks looking for
 
 - https://cs.brown.edu/people/sk/Publications/Papers/Published/lgmvpk-static-python/
 
-** Resyntax: A Macro-Powered Refactoring Tool
+** INPROGRESS Resyntax: A Macro-Powered Refactoring Tool
 
+- Linter tools for standard PR feedback 
+
+- https://github.com/jackfirth/resyntax
+
+#+begin_src rkt
+test: "lambda variable definition with no arguments to function definition"
+------------------------------
+(define f
+  (λ ()
+    1))
+------------------------------
+------------------------------
+(define (f)
+  1)
+------------------------------
+
+#+end_src
 ** What Can Beginners Learn from Video Games?
 
 ** Design Recipe Guided Synthesis with Bingus
