@@ -43,12 +43,62 @@ check the benchmarks looking for
 
 ** Metaprograms and Proofs: Macros in Lean 4
 
+- leanprover.github.io
+
+- http://leanprover.github.io/talks/RacketCon2022.pdf
 
 - https://dblp.org/pid/76/3968-2.html
   
 - https://leanprover.github.io/
+  
+- https://github.com/leanprover/doc-gen4 uses the new macro infrastructure for html / jsx
+
+- https://github.com/dwrensha/lean4-maze
+
+- TSyntax 
+
+- Coercion for the types
+
+*** Papers 
+
+- https://pp.ipd.kit.edu/uploads/publikationen/ullrich20beyond.pdf
 
 ** Shallow and Optional Types
+
+- https://github.com/racket/typed-racket/actions
+
+- https://cs.brown.edu/people/bgreenma/sitemap.html
+
+- Typed Racket: ~#lang typed/racket~
+
+- ~#lang typed/racket/shallow~ and ~#lang typed/racket/optional~
+
+- shallow can be things like ~[str]~
+
+- when looking at the shape check like list and ~car~ or ~cdr~
+
+#+begin_src lisp
+  (: says-moo? (-> Listof Symbol)
+     Boolean))
+#+end_src
+
+- run through deep, shallow, optional
+
+- examples for calls based on nthe lang 
+
+#+begin_src lisp
+(-> String)
+#+end_src
+
+- 8.7 PLDI 22 moving between the types 
+
+- https://plt.cs.northwestern.edu/snapshots/current/pdf-doc/ts-guide.pdf
+ 
+*** Reading
+
+- https://plt.cs.northwestern.edu/snapshots/current/doc/index.html
+
+- https://cs.brown.edu/people/sk/Publications/Papers/Published/lgmvpk-static-python/
 
 ** Resyntax: A Macro-Powered Refactoring Tool
 
