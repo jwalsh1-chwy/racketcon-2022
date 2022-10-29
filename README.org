@@ -207,6 +207,13 @@ test: "lambda variable definition with no arguments to function definition"
 
 - Implement: ~median~
 
+- Implement: ~overlap~ (docdiff)
+
+#+begin_src rkt
+  (define (overlap l1 l2))
+#+end_src
+
+- https://cs.brown.edu/courses/csci0190/2020/docdiff.html
 
 - See also https://github.com/webyrd/Barliman
 
@@ -214,6 +221,13 @@ test: "lambda variable definition with no arguments to function definition"
 
 - Should should the meta for students to understand how things will break when in the course
 
+- left median error 
+
+- there are the set up issues that come up for student solutions 
+
+- write counter examples as an expert for the system under development
+
+- https://papl.cs.brown.edu/2020/
 
 ** TODO Contracts for protocols
 
