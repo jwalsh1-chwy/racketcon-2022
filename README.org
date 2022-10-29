@@ -1,0 +1,74 @@
+* (twelth RacketCon) 2022
+
+https://con.racket-lang.org/
+
+** The final tier is Shed: Inside the Wizard Engine’s fast in-place interpreter for WebAssembly
+
+- https://github.com/titzer/wizard-engine
+
++ static compilation 
++ 2017 turbofan
+
+- wasm code
+- side table for conditions
+- simple value table for refs and numberics 
+
+https://github.com/titzer/virgil
+
+*** side-table 
+
+
+- delta ip is used for the conditional flow for the fallthrough
+- delta xip 
+- vals
+- pop (number of values)
+
+
+side table is 30% of original bytecode
+
+*** Performance tuning
+
+check the benchmarks looking for
+
+- bicg mvt atax symm 2mm adi jacobi-2d
+
+*** Outcomes 
+
+- side table design 
+
+*** Notes
+
+- https://github.com/titzer/cs17-670-fall2022-proj1
+- https://arxiv.org/abs/2205.01183
+
+** Metaprograms and Proofs: Macros in Lean 4
+
+
+- https://dblp.org/pid/76/3968-2.html
+  
+- https://leanprover.github.io/
+
+** Shallow and Optional Types
+
+** Resyntax: A Macro-Powered Refactoring Tool
+
+** What Can Beginners Learn from Video Games?
+
+** Design Recipe Guided Synthesis with Bingus
+
+** VISr: Visual and Interactive Syntax
+
+** Forge: Building a Pedagogic Solver Tool in Racket
+
+** Stacker: A runnable notional machine for an HtDP-like language
+
+** Examplar: Making Hay from Wheat
+
+** Contracts for protocols
+
+** fmt: A Racket code formatter
+
+** Summary of the Summer of `#lang` (Fun + Games III)
+
+** The State of Racket
+
