@@ -283,4 +283,25 @@ n
         (list 'born 470)
         (list 'died 399)))
 
+(define (person? x)
+  (and (pair? x)
+       (eq? (car x) 'person)
+       (pair? (cdr x))
+       (string? (cadr x))
+       (integer? (caddr x))
+       (integer? (cadddr x))
+       (integer? (cddddr x))))
+
+(define (person-name x)
+  (cadr x))
+
+(define (person-age x)
+  (caddr x))
+
+(define (person-born x)
+  (cadddr x))
+
+(define (person-died x)
+  (cddddr x))
+
 (struct person ([name : String] [age : Integer] [born : Integer] [died : Integer]))
