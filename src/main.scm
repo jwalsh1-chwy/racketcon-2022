@@ -46,7 +46,6 @@
 )
 
 ;; RacketCon 2022 samples
-; (require typed/racket/unsafe)
 (: middle (-> (Listof Number) Number))
 (define (middle l1)
   (define n (length l1))
@@ -83,7 +82,7 @@
   (define l2 (map (lambda (x) (- x m)) l1))
   (define l3 (map (lambda (x) (* x x)) l2))
   (define sum (foldl + 0 l3))
-  (/ sum n))
+  (/ sum n))n
 
 (: standard-deviation (-> (Listof Number) Number))
 (define (standard-deviation l1)
@@ -96,7 +95,7 @@
   (/ (- x m) s))
 
 (quote
-  (define my-list (list 1 3 2 1))
+  (define my-list (list 3 2 1 1))
   (middle my-list) ;; 2
   (mean my-list) ;; 1.75
   (median my-list) ;; 1.5
@@ -179,17 +178,17 @@
 (quote
   ; Initially work with the set of test cases sufficient in Barliman to synthetically create the function definition
   ; Secondarily follow up with the contract definitions for any functions that implicitly relty on sort
-  ; (define my-list2 (list 6 7 8 9 10))
-  ; (define my-list3 (list 1 3 5 7 9 8 6 4 2 0))
-  (append my-list2 my-list3)
-  (reverse my-list3)
-  (sort my-list3)
-  (filter (lambda (x) (even? x)) my-list3)
-  (map (lambda (x) (+ x 1)) my-list3)
-  (foldl + 0 my-list3)
-  (foldr + 0 my-list3)
-  (zip my-list2 my-list3)
-  (unzip (zip my-list2 my-list3))
-  (zip-with + my-list2 my-list3)
-  (zip-with* + my-list2 my-list3)
+  (define my-list2 (list 6 7 8 9 10))
+  (define my-list3 (list 1 3 5 7 9 8 6 4 2 0))
+  (append my-list2 my-list3) ;; (6 7 8 9 10 1 3 5 7 9 8 6 4 2 0)
+  (reverse my-list3) ;; (0 2 4 6 8 9 7 5 3 1)
+  (sort my-list3) ;; (0 1 2 3 4 5 6 7 8 9)
+  (filter (lambda (x) (even? x)) my-list3) ;; (0 2 4 6 8)
+  (map (lambda (x) (+ x 1)) my-list3) ;; (2 4 6 8 10 10 8 6 4 2)
+  (foldl + 0 my-list3) ;; 45
+  (foldr + 0 my-list3) ;; 45
+  (zip my-list2 my-list3) ;; ((6 1) (7 3) (8 5) (9 7) (10 9))
+  (unzip (zip my-list2 my-list3)) ;; ((6 7 8 9 10) (1 3 5 7 9))
+  (zip-with + my-list2 my-list3) ;; (7 10 13 16 19)
+  (zip-with* + my-list2 my-list3) ;; (7 10 13 16 19)
 )
