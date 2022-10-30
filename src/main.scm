@@ -13,9 +13,9 @@
 )
 
 ;; 2.1 Datatypes and Unions
-(define-type Tree (U leaf node))
 (struct leaf ([val : Number]))
 (struct node ([left : Tree] [right : Tree]))
+(define-type Tree (U leaf node))
 
 (: tree-height (-> Tree Integer))
 (define (tree-height t)
