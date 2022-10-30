@@ -75,6 +75,7 @@
   (define l3 (map (lambda (x) (* x x)) l2))
   (define sum (foldl + 0 l3))
   (/ sum n))
+n
 
 (: standard-deviation (-> (Listof Number) Number))
 (define (standard-deviation l1)
@@ -113,9 +114,12 @@
      (let ([l2 (split-at (quotient (length l1) 2) l1)])
        (merge (mergesort (car l2)) (mergesort (cdr l2))))]))
 
+; Examples
 ;; review contracts and transitivity requirements for sort
-(quote (define my-bad-sort-predicate (lambda (x y) (random 2)))
-       (define my-bad-sort-predicate2 (lambda (x y) #f)))
+(quote
+ (define my-bad-sort-predicate (lambda (x y) (random 2)))
+ (define my-bad-sort-predicate2 (lambda (x y) #f))
+ )
 
 ;; Lists and Recursion
 (: sum (-> (Listof Number) Number))
@@ -180,19 +184,52 @@
 (define (zip-with* f l1 l2)
   )
 
+(: flatten (-> (Listof (Listof Number)) (Listof Number)))
+(define (flatten l1)
+  (cond
+    [(null? l1) '()]
+    [(list? (car l1)) (append (flatten (car l1)) (flatten (cdr l1)))]
+    [else (cons (car l1) (flatten (cdr l1)))]))
+
+(: flatten* (-> (Listof (Listof Number)) (Listof Number)))
+(define (flatten* l1)
+  (cond
+    [(null? l1) '()]
+    [(list? (car l1)) (append (flatten* (car l1)) (flatten* (cdr l1)))]
+    [else (cons (car l1) (flatten* (cdr l1)))]))
+
+; Examples
 ; Initially work with the set of test cases sufficient in Barliman to synthetically create the function definition
 ; Secondarily follow up with the contract definitions for any functions that implicitly relty on sort
-(quote (define my-list2 (list 6 7 8 9 10))
-       (define my-list3 (list 1 3 5 7 9 8 6 4 2 0))
-       (append my-list2 my-list3) ;; (6 7 8 9 10 1 3 5 7 9 8 6 4 2 0)
-       (reverse my-list3) ;; (0 2 4 6 8 9 7 5 3 1)
-       (sort my-list3) ;; (0 1 2 3 4 5 6 7 8 9)
-       (filter (lambda (x) (even? x)) my-list3) ;; (0 2 4 6 8)
-       (map (lambda (x) (+ x 1)) my-list3) ;; (2 4 6 8 10 10 8 6 4 2)
-       (foldl + 0 my-list3) ;; 45
-       (foldr + 0 my-list3) ;; 45
-       (zip my-list2 my-list3) ;; ((6 1) (7 3) (8 5) (9 7) (10 9))
-       (unzip (zip my-list2 my-list3)) ;; ((6 7 8 9 10) (1 3 5 7 9))
-       (zip-with + my-list2 my-list3) ;; (7 10 13 16 19)
-       (zip-with* + my-list2 my-list3) ;; (7 10 13 16 19)
-       )
+(quote
+ (define my-list2 (list 6 7 8 9 10))
+ (define my-list3 (list 1 3 5 7 9 8 6 4 2 0))
+ (append my-list2 my-list3) ;; (6 7 8 9 10 1 3 5 7 9 8 6 4 2 0)
+ (reverse my-list3) ;; (0 2 4 6 8 9 7 5 3 1)
+ (sort my-list3) ;; (0 1 2 3 4 5 6 7 8 9)
+ (filter (lambda (x) (even? x)) my-list3) ;; (0 2 4 6 8)
+ (map (lambda (x) (+ x 1)) my-list3) ;; (2 4 6 8 10 10 8 6 4 2)
+ (foldl + 0 my-list3) ;; 45
+ (foldr + 0 my-list3) ;; 45
+ (zip my-list2 my-list3) ;; ((6 1) (7 3) (8 5) (9 7) (10 9))
+ (unzip (zip my-list2 my-list3)) ;; ((6 7 8 9 10) (1 3 5 7 9))
+ (zip-with + my-list2 my-list3) ;; (7 10 13 16 19)
+ (zip-with* + my-list2 my-list3) ;; (7 10 13 16 19)
+ )
+
+;; Transformations and Recursion
+
+(: frequencies (-> (Listof Number) (Listof (Listof Number))))
+(define (frequencies l1)
+  (cond
+    [(null? l1) '()]
+    [else
+     (let ([x (car l1)] [rest (cdr l1)])
+       (cons (cons x (length (filter (lambda (y) (= x y)) rest)))
+             (frequencies (filter (lambda (y) (not (= x y))) rest))))]))
+
+; Examples
+(quote
+ (define my-list4 (list 1 2 1 4 1 6 1 8 1 10))
+ (frequencies my-list4) ;; ((1 5) (2 1) (4 1) (6 1) (8 1) (10 1))
+ )
