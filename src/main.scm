@@ -9,6 +9,8 @@
 
 (quote (distance (pt 0 0) (pt 3.1415 2.7172)))
 
+;; Trees and Recursion
+
 ;; 2.1 Datatypes and Unions
 (struct leaf ([val : Number]))
 (struct node ([left : Tree] [right : Tree]))
@@ -116,10 +118,8 @@ n
 
 ; Examples
 ;; review contracts and transitivity requirements for sort
-(quote
- (define my-bad-sort-predicate (lambda (x y) (random 2)))
- (define my-bad-sort-predicate2 (lambda (x y) #f))
- )
+(quote (define my-bad-sort-predicate (lambda (x y) (random 2)))
+       (define my-bad-sort-predicate2 (lambda (x y) #f)))
 
 ;; Lists and Recursion
 (: sum (-> (Listof Number) Number))
@@ -201,21 +201,20 @@ n
 ; Examples
 ; Initially work with the set of test cases sufficient in Barliman to synthetically create the function definition
 ; Secondarily follow up with the contract definitions for any functions that implicitly relty on sort
-(quote
- (define my-list2 (list 6 7 8 9 10))
- (define my-list3 (list 1 3 5 7 9 8 6 4 2 0))
- (append my-list2 my-list3) ;; (6 7 8 9 10 1 3 5 7 9 8 6 4 2 0)
- (reverse my-list3) ;; (0 2 4 6 8 9 7 5 3 1)
- (sort my-list3) ;; (0 1 2 3 4 5 6 7 8 9)
- (filter (lambda (x) (even? x)) my-list3) ;; (0 2 4 6 8)
- (map (lambda (x) (+ x 1)) my-list3) ;; (2 4 6 8 10 10 8 6 4 2)
- (foldl + 0 my-list3) ;; 45
- (foldr + 0 my-list3) ;; 45
- (zip my-list2 my-list3) ;; ((6 1) (7 3) (8 5) (9 7) (10 9))
- (unzip (zip my-list2 my-list3)) ;; ((6 7 8 9 10) (1 3 5 7 9))
- (zip-with + my-list2 my-list3) ;; (7 10 13 16 19)
- (zip-with* + my-list2 my-list3) ;; (7 10 13 16 19)
- )
+(quote (define my-list2 (list 6 7 8 9 10))
+       (define my-list3 (list 1 3 5 7 9 8 6 4 2 0))
+       (append my-list2 my-list3) ;; (6 7 8 9 10 1 3 5 7 9 8 6 4 2 0)
+       (reverse my-list3) ;; (0 2 4 6 8 9 7 5 3 1)
+       (sort my-list3) ;; (0 1 2 3 4 5 6 7 8 9)
+       (filter (lambda (x) (even? x)) my-list3) ;; (0 2 4 6 8)
+       (map (lambda (x) (+ x 1)) my-list3) ;; (2 4 6 8 10 10 8 6 4 2)
+       (foldl + 0 my-list3) ;; 45
+       (foldr + 0 my-list3) ;; 45
+       (zip my-list2 my-list3) ;; ((6 1) (7 3) (8 5) (9 7) (10 9))
+       (unzip (zip my-list2 my-list3)) ;; ((6 7 8 9 10) (1 3 5 7 9))
+       (zip-with + my-list2 my-list3) ;; (7 10 13 16 19)
+       (zip-with* + my-list2 my-list3) ;; (7 10 13 16 19)
+       )
 
 ;; Transformations and Recursion
 
@@ -228,8 +227,60 @@ n
        (cons (cons x (length (filter (lambda (y) (= x y)) rest)))
              (frequencies (filter (lambda (y) (not (= x y))) rest))))]))
 
+(: permutations (-> (Listof Number) (Listof (Listof Number))))
+(define (permutations l1)
+  (cond
+    [(null? l1) '()]
+    [else
+     (let ([x (car l1)] [rest (cdr l1)])
+       (append (map (lambda (l2) (cons x l2)) (permutations rest)) (permutations rest)))]))
+
 ; Examples
-(quote
- (define my-list4 (list 1 2 1 4 1 6 1 8 1 10))
- (frequencies my-list4) ;; ((1 5) (2 1) (4 1) (6 1) (8 1) (10 1))
- )
+(quote (define my-list4 (list 1 2 1 4 1 6 1 8 1 10))
+       (frequencies my-list4) ;; ((1 5) (2 1) (4 1) (6 1) (8 1) (10 1))
+       (permutations my-list4) ;;
+       )
+
+(define my-friends (list '("John" "Mary" "Peter" "Jane" "Bob")))
+
+(define my-pets (list (list 'dog 'fido) (list 'cat 'fluffy) (list 'fish 'nemo)))
+
+; (struct pet ([species : Symbol] [name : Symbol]))
+
+(define my-books
+  (list (list 'title "The Hobbit")
+        (list 'author "J.R.R. Tolkien")
+        (list 'year 1937)
+        (list 'title "The Lord of the Rings")
+        (list 'author "J.R.R. Tolkien")
+        (list 'year 1954)
+        (list 'title "The Silmarillion")
+        (list 'author "J.R.R. Tolkien")
+        (list 'year 1977)))
+
+; (struct book ([title string] [author string] [year number]))
+
+(define my-people
+  (list (list 'name "John")
+        (list 'age 30)
+        (list 'name "Mary")
+        (list 'age 25)
+        (list 'name "Peter")
+        (list 'age 27)
+        (list 'name "Jane")
+        (list 'age 22)
+        (list 'name "Bob")
+        (list 'age 35)))
+
+(define my-philosophers
+  (list (list 'name "Plato")
+        (list 'born 428)
+        (list 'died 348)
+        (list 'name "Aristotle")
+        (list 'born 384)
+        (list 'died 322)
+        (list 'name "Socrates")
+        (list 'born 470)
+        (list 'died 399)))
+
+(struct person ([name : String] [age : Integer] [born : Integer] [died : Integer]))
