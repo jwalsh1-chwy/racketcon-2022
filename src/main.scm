@@ -104,6 +104,45 @@
   (range my-list) ;; 2
 )
 
+;; Sorting
+(: quicksort (-> (Listof Number) (Listof Number)))
+(define (quicksort l1)
+  (cond [(null? l1) '()]
+        [else (let ([pivot (car l1)]
+                    [rest (cdr l1)])
+                (append (quicksort (filter (lambda (x) (< x pivot)) rest))
+                        (cons pivot (quicksort (filter (lambda (x) (>= x pivot)) rest)))))]))
+
+(: mergesort (-> (Listof Number) (Listof Number)))
+(define (mergesort l1)
+  (cond [(null? l1) '()]
+        [(null? (cdr l1)) l1]
+        [else (let ([l2 (split-at (quotient (length l1) 2) l1)])
+                (merge (mergesort (car l2)) (mergesort (cdr l2))))]))
+
+
+(quote
+  ;; review contracts and transitivity requirements for sort
+  (define my-bad-sort-predicate (lambda (x y) (random 2)))
+  (define my-bad-sort-predicate2 (lambda (x y) #f))
+)
+
+;; Lists and Recursion
+(: sum (-> (Listof Number) Number))
+(define (sum l1)
+  (cond [(null? l1) 0]
+        [else (+ (car l1) (sum (cdr l1)))]))
+
+(: product (-> (Listof Number) Number))
+(define (product l1)
+  (cond [(null? l1) 1]
+        [else (* (car l1) (product (cdr l1)))]))
+
+(: length (-> (Listof Number) Integer))
+(define (length l1)
+  (cond [(null? l1) 0]
+        [else (+ 1 (length (cdr l1)))]))
+
 (: append (-> (Listof Number) (Listof Number) (Listof Number)))
 (define (append l1 l2)) ;; TODO
 
@@ -143,4 +182,14 @@
   ; (define my-list2 (list 6 7 8 9 10))
   ; (define my-list3 (list 1 3 5 7 9 8 6 4 2 0))
   (append my-list2 my-list3)
+  (reverse my-list3)
+  (sort my-list3)
+  (filter (lambda (x) (even? x)) my-list3)
+  (map (lambda (x) (+ x 1)) my-list3)
+  (foldl + 0 my-list3)
+  (foldr + 0 my-list3)
+  (zip my-list2 my-list3)
+  (unzip (zip my-list2 my-list3))
+  (zip-with + my-list2 my-list3)
+  (zip-with* + my-list2 my-list3)
 )
