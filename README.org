@@ -1,10 +1,23 @@
 * (twelth RacketCon) 2022
 
+
 https://con.racket-lang.org/
+
+** Summary
+
+The themes from this year mirrored those from the past: 1) pedagogy, 2) types and contracts, 3) static analysis and tooling.
+
+*** Pedagogy
+
+*** Types and Contracts 
+
+*** Tooling
 
 ** Videos 
 
-https://www.google.com/search?q=youtube+racketcon&rlz=1C5GCEM_enUS926US926&oq=youtube+racketcon&aqs=chrome..69i57j69i64.13347j0j7&sourceid=chrome&ie=UTF-8
+Videos from this year and past should be available at the following:
+
+- https://www.google.com/search?q=youtube+racketcon&rlz=1C5GCEM_enUS926US926&oq=youtube+racketcon&aqs=chrome..69i57j69i64.13347j0j7&sourceid=chrome&ie=UTF-8
 
 * Sessions 
 
