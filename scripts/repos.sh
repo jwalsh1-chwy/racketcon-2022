@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 # Get all of the core repositories mentioned during the conference
-repos=(https://github.com/ralsei/bingus.git
-    git@github.com:LeifAndersen/interactive-syntax-clojure.git
-    git@github.com:dwrensha/lean4-maze.git
-    # git@github.com:leanprover/lean4.git
-    git@github.com:jackfirth/resyntax.git
-    # git@github.com:titzer/virgil.git
-    git@github.com:titzer/wizard-engine.git)
+repos=(
+       git@github.com:ralsei/bingus.git
+       git@github.com:LeifAndersen/interactive-syntax-clojure.git
+       git@github.com:dwrensha/lean4-maze.git
+       # git@github.com:leanprover/lean4.git
+       git@github.com:jackfirth/resyntax.git
+       # git@github.com:titzer/virgil.git
+       git@github.com:titzer/wizard-engine.git
+       git@github.com:camoy/trace-contract.git
+       git@github.com:sorawee/fmt.git
+)
 
 echo "Found ${#repos[@]} repositories"
 # This should be run from the project root

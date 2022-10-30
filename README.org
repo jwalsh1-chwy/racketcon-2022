@@ -2,7 +2,6 @@
 
 https://con.racket-lang.org/
 
-
 ** Videos 
 
 https://www.google.com/search?q=youtube+racketcon&rlz=1C5GCEM_enUS926US926&oq=youtube+racketcon&aqs=chrome..69i57j69i64.13347j0j7&sourceid=chrome&ie=UTF-8
@@ -182,7 +181,7 @@ test: "lambda variable definition with no arguments to function definition"
 
 - https://cs.brown.edu/research/pubs/theses/ugrad/2022/chen.qianfan.pdf
 
-** REVIEW Stacker: A runnable notional machine for an HtDP-like language
+** DONE Stacker: A runnable notional machine for an HtDP-like language
 
 - https://beautifulracket.com/stacker/ 
 #+begin_src rkt
@@ -193,11 +192,13 @@ test: "lambda variable definition with no arguments to function definition"
 
 - stacks and linking
 
-** TODO Examplar: Making Hay from Wheat
+** DONE Examplar: Making Hay from Wheat
 
 - https://cs.brown.edu/~sk/Publications/Papers/Published/fffkbmt-programmable-prog-lang/paper.pdf
 
 - Comes back to providing good examples
+
+- Implement: ~middle~
 
 - Implement: ~median~
 
@@ -205,7 +206,7 @@ test: "lambda variable definition with no arguments to function definition"
 
 - Implement: ~append~
 
-- Implement: ~median~
+- Implement: ~mode~
 
 - Implement: ~overlap~ (docdiff)
 
@@ -229,15 +230,62 @@ test: "lambda variable definition with no arguments to function definition"
 
 - https://papl.cs.brown.edu/2020/
 
-** TODO Contracts for protocols
+** DONE Contracts for protocols
 
 - https://github.com/camoy
 
-** TODO fmt: A Racket code formatter
+- https://github.com/camoy/trace-contract
+
+- client vs. server contract violations with fish 
+
+- use the contract to be independent of the implementation
+
+- sort must require:
+
+  + comparator (function consuming two arguments)
+
+  + input and output list is same length
+
+  + input and output have same elements (permutation)
+
+- look at docs for warnings about flow (~start-doc~, ~set-stipple~, hash ~string-set!~ mutability
+
+- define contract for ~increasing?~
+
+- full vs. comparator
+
+- contract is as accumulator vs. comparator
+
+- total order, total, reflexive, antisymmetry, transitivity 
+
+- total order: transitive violated is the ~(lambda (a b) #f)~
+
+- ~(leq? 1 2)~ ~(leq? 3 2)~
+
+- options contracts 
+
+** DONE fmt: A Racket code formatter
 
 - https://github.com/sorawee/fmt
 
+- not refactoring
+
+- contrast AST as a code visualization
+
+- see LSP 
+
+- https://emacs-lsp.github.io/lsp-mode/page/lsp-racket-langserver/
+
+- aowens-2/racket-formatting
+
+- https://github.com/lassik/emacs-format-all-the-code
+
+- https://github.com/lassik/emacs-format-all-the-code/blob/master/format-all.el#L74
+
+
 ** TODO Summary of the Summer of `#lang` (Fun + Games III)
+
+- https://github.com/lang-party/Summer2022
 
 ** TODO The State of Racket
 
