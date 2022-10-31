@@ -13,7 +13,7 @@ Spend less time defining the test cases for a verifiable problem and more on cre
 
 *** Types and Contracts 
 
-Contract systems (PyContracts, GraphQL Scalars, ~ts-code-contracts~, or [[https://clojure.org/guides/spec][clojure.spec]]) may underspecify the contraints in cases like [[https://mathworld.wolfram.com/MonotoneIncreasing.html][monotonic increasing]] values (e.g., time as ~increasing?~) or [[https://en.wikipedia.org/wiki/Total_order][total order]] (sort-by predicate violations of the transitive rule (~sort((a, b) => false)~) and can be difficult to define with current contract systems.
+Contract systems (PyContracts, [[https://peps.python.org/pep-0484/][typing]], GraphQL Scalars, ~ts-code-contracts~, or [[https://clojure.org/guides/spec][clojure.spec]]) may underspecify the contraints in cases like [[https://mathworld.wolfram.com/MonotoneIncreasing.html][monotonic increasing]] values (e.g., time as ~increasing?~) or [[https://en.wikipedia.org/wiki/Total_order][total order]] (sort-by predicate violations of the transitive rule (~sort((a, b) => false)~) and can be difficult to define with current contract systems.
 
 *** Tooling
 
