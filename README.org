@@ -19,6 +19,10 @@ Contract systems (PyContracts, GraphQL Scalars, ~ts-code-contracts~, or [[https:
 
 Automated PR feedback from static analysis tools (e.g., [[https://github.com/psf/black][Black]], [[https://prettier.io/][Pettier]], [[https://typescript-eslint.io/][ESLint]], [[https://www.sonarqube.org/][SonarQube]]) still hinges heavily on defining the cultural expectations of a team rather than of the tools.
 
+** Examples
+
+Code examples associated with some of the sessions are available at [[file:src/main.scm][src/main.scm]].
+
 ** Photos 
 
 [[images/52461948947_0e73e889b2_w.jpg]]
