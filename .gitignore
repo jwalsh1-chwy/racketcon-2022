@@ -6,3 +6,4 @@
 *.scm#*
 .#*.scm
 repos
+.DS_Store
