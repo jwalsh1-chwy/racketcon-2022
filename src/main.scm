@@ -203,18 +203,18 @@
 ; Secondarily follow up with the contract definitions for any functions that implicitly relty on sort
 (quote (define my-list2 (list 6 7 8 9 10))
        (define my-list3 (list 1 3 5 2 4 2 0))
-       (append my-list2 my-list3) ;; (6 7 8 9 10 1 3 5 2 4 2 0)
-       (reverse my-list3) ;; (0 2 4 2 5 3 1)
-       (sort my-list3) ;; (0 1 2 2 3 4 5)
-       (filter (lambda (x) (even? x)) my-list3) ;; (2 4 2 0)
-       (map (lambda (x) (+ x 1)) my-list3) ;; (2 4 6 3 5 3 1)
-       (foldl + 0 my-list3) ;; 17
-       (foldr + 0 my-list3) ;; 17
-       (foldl * 1 my-list3) ;; 0
-       (zip my-list2 my-list3) ;; ((6 1) (7 3) (8 5) (9 2) (10 4) (1 2) (3 0))
-       (unzip (zip my-list2 my-list3)) ;; ((6 7 8 9 10 1 3) (1 3 5 2 4 2 0))
-       (zip-with + my-list2 my-list3) ;; (7 10 13 11 14 3 3)
-       (zip-with* + my-list2 my-list3) ;; (7 10 13 11 14 3 3)
+       (jwalsh/append my-list2 my-list3) ;; (6 7 8 9 10 1 3 5 2 4 2 0)
+       (jwalsh/reverse my-list3) ;; (0 2 4 2 5 3 1)
+       (jwalsh/sort my-list3) ;; (0 1 2 2 3 4 5)
+       (jwalsh/filter (lambda (x) (even? x)) my-list3) ;; (2 4 2 0)
+       (jwalsh/map (lambda (x) (+ x 1)) my-list3) ;; (2 4 6 3 5 3 1)
+       (jwalsh/foldl + 0 my-list3) ;; 17
+       (jwalsh/foldr + 0 my-list3) ;; 17
+       (jwalsh/foldl * 1 my-list3) ;; 0
+       (jwalsh/zip my-list2 my-list3) ;; ((6 1) (7 3) (8 5) (9 2) (10 4) (1 2) (3 0))
+       (jwalsh/unzip (zip my-list2 my-list3)) ;; ((6 7 8 9 10 1 3) (1 3 5 2 4 2 0))
+       (jwalsh/zip-with + my-list2 my-list3) ;; (7 10 13 11 14 3 3)
+       (jwalsh/zip-with* + my-list2 my-list3) ;; (7 10 13 11 14 3 3)
        )
 
 ;; Transformations and Recursion
@@ -226,7 +226,7 @@
     [else
      (let ([x (car l1)] [rest (cdr l1)])
        (cons (cons x (length (filter (lambda (y) (= x y)) rest)))
-             (frequencies (filter (lambda (y) (not (= x y))) rest))))]))
+             (jwalsh/frequencies (filter (lambda (y) (not (= x y))) rest))))]))
 
 (: jwalsh/permutations (-> (Listof Number) (Listof (Listof Number))))
 (define (jwalsh/permutations l1)
@@ -234,12 +234,12 @@
     [(null? l1) '()]
     [else
      (let ([x (car l1)] [rest (cdr l1)])
-       (append (map (lambda (l2) (cons x l2)) (permutations rest)) (permutations rest)))]))
+       (append (map (lambda (l2) (cons x l2)) (jwalsh/permutations rest)) (jwalsh/permutations rest)))]))
 
 ; Examples
 (quote (define my-list4 (list 1 2 1 4 1 6 1 8 1 10))
-       (frequencies my-list4) ;; ((1 5) (2 1) (4 1) (6 1) (8 1) (10 1))
-       (permutations my-list4) ;;
+       (jwalsh/frequencies my-list4) ;; ((1 5) (2 1) (4 1) (6 1) (8 1) (10 1))
+       (jwalsh/permutations my-list4) ;;
        )
 
 (define jwalsh/friends (list '("John" "Mary" "Peter" "Jane" "Bob")))
@@ -249,15 +249,15 @@
 ; (struct pet ([species : Symbol] [name : Symbol]))
 
 (define jwalsh/books
-  (list (list 'title "The Hobbit")
-        (list 'author "J.R.R. Tolkien")
-        (list 'year 1937)
-        (list 'title "The Lord of the Rings")
-        (list 'author "J.R.R. Tolkien")
-        (list 'year 1954)
-        (list 'title "The Silmarillion")
-        (list 'author "J.R.R. Tolkien")
-        (list 'year 1977)))
+  (list (list 'title "Leviathan")
+        (list 'author "Thomas Hobbes")
+        (list 'year 1651)
+        (list 'title "Critique of Pure Reason")
+        (list 'author "Immanuel Kant")
+        (list 'year 1781)
+        (list 'title "A Theory of Justice")
+        (list 'author "John Rawls")
+        (list 'year 1971)))
 
 ; (struct book ([title string] [author string] [year number]))
 
