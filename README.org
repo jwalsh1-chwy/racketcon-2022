@@ -9,9 +9,18 @@ The themes from this year mirrored those from the past: 1) pedagogy, 2) types an
 
 *** Pedagogy
 
+Spend less time defining the test cases for a verifiable problem and more on creating the set of likely areas of failure that could be indicated by the tests. 
+
+
+
 *** Types and Contracts 
 
+
 *** Tooling
+
+Automated PR feedback (either as part of a PR or a pre-commit) still hinges heavily on defining the cultural expectations of 
+
+Tools (linting, style guide (Black, Prettier), fixers) as part of static analysis 
 
 ** Videos 
 
