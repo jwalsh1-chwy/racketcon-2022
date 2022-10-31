@@ -13,11 +13,11 @@ Spend less time defining the test cases for a verifiable problem and more on cre
 
 *** Types and Contracts 
 
-Contract systems (PyContracts, GraphQL Scalars, ~ts-code-contracts~, or ~clojure.spec~) may underspecify the contraints in cases like monotonic increasing values (e.g., time as ~increasing?~) or total order (sort-by predicate violations of the transitive rule (~sort((a, b) => false)~) can be difficult to define.  
+Contract systems (PyContracts, GraphQL Scalars, ~ts-code-contracts~, or [[https://clojure.org/guides/spec][~clojure.spec~]]) may underspecify the contraints in cases like monotonic increasing values (e.g., time as ~increasing?~) or [[https://en.wikipedia.org/wiki/Total_order][total order]] (sort-by predicate violations of the transitive rule (~sort((a, b) => false)~) can be difficult to define.  
 
 *** Tooling
 
-Automated PR feedback (either as part of a PR or a pre-commit) still hinges heavily on defining the cultural expectations of a team rather than of the tools.
+Automated PR feedback from static analysis tools (e.g., [[https://github.com/psf/black][Black]], [[https://prettier.io/][Pettier]], [[https://typescript-eslint.io/][ESLint]], [[https://www.sonarqube.org/][SonarQube]]) still hinges heavily on defining the cultural expectations of a team rather than of the tools.
 
 ** Photos 
 
