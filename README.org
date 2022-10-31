@@ -11,22 +11,27 @@ The themes from this year mirrored those from the past: 1) pedagogy, 2) types an
 
 Spend less time defining the test cases for a verifiable problem and more on creating the set of likely areas of failure that could be indicated by the tests. 
 
-
-
 *** Types and Contracts 
 
+Contract systems (PyContracts, GraphQL Scalars, ~ts-code-contracts~, or ~clojure.spec~) may underspecify the contraints in cases like monotonic increasing values (e.g., time as ~increasing?~) or total order (sort-by predicate violations of the transitive rule (~sort((a, b) => false)~) can be difficult to define.  
 
 *** Tooling
 
 Automated PR feedback (either as part of a PR or a pre-commit) still hinges heavily on defining the cultural expectations of 
 
-Tools (linting, style guide (Black, Prettier), fixers) as part of static analysis 
+** Photos 
+
+[[images/52461948947_0e73e889b2_w.jpg]]
+[[images/52462630861_fbe9714c03_w.jpg]]
+[[images/52462861600_7b2f6e7ae3_w.jpg]]
+[[images/52462903404_69b8e092cf_w.jpg]]
+[[images/52462949593_4f16a9fd6d_w.jpg]]
 
 ** Videos 
 
 Videos from this year and past should be available at the following:
 
-- https://www.google.com/search?q=youtube+racketcon&rlz=1C5GCEM_enUS926US926&oq=youtube+racketcon&aqs=chrome..69i57j69i64.13347j0j7&sourceid=chrome&ie=UTF-8
+- https://www.youtube.com/c/racketlang
 
 * Sessions 
 
